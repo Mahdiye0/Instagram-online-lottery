@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	{% if request.method == 'GET' and request.args.get('flag')  %}  
+		<div style= "margin-left: 350px; width: 400px;"><span style="color: red;">نام کاربری وجود ندارد یا کلمه رمز اشتباه است</span></div>
+
+	{% endif %}
+
+	<form action="/loginprocss" method="post">
+	<div style= "margin-left: 350px; width: 400px;"><h4>ورود به سیستم قرعه کشی آنلاین</h4>
+	  <div class="form-group" >
+		<label for="user" class="form-label">User Name:</label>
+		<input type="text" class="form-control"  name="user" >
+	  </div>
+	  <div class="form-group">
+		<label for="password" class="form-label">Password:</label>
+		<input type="password" class="form-control"  name="password" >
+	  </div>
+	 
+	  <input type="hidden" name="id" value="" />
+	  
+	  <div class="form-group mt-3">
+		<button type="submit" class="btn btn-success">Login</button>
+		<a href="{{url_for('register')}}" class="btn btn-primary">Register</a>
+	  </div>
+	</div>
+	</form>
+{% endblock %}
+

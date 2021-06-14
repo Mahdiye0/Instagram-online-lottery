@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="form-group" style= "margin-left: 200px; ">
+	<label> {{session['user']}}</label>
+	<a href="{{url_for('logout')}}" class="btn btn-primary">Logout</a>
+	<br>
+</div>
+  <br>
+<div style= "margin-left: 200px; width: 600px;border: 1px solid;">
+	<div class="input-group mb-3">
+        {% if flag %}  
+            <div style= "margin-left: 350px; width: 400px;">
+                <span>تراکنش با موفقیت انجام شد</span>
+                <br>
+                <span>RefID:{{refid}}</span>
+            </div>
+        {% endif %}
+        {% if flag1  %}  
+            <div style= "margin-left: 350px; width: 400px;">
+                <span>عملیات پرداخت موفق بوده و قبلا یک شناسه تراکنش تخصیص داده شده است</span>
+                <br>
+                
+            </div>
+        {% endif %}
+        <a style="margin-left:5px;" href="/report" class="btn btn-success">NEXT</a>
+
+	</div>
+	
+	
+</div>
+<br>
+
+{% endblock %}

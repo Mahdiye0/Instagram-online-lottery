@@ -1,0 +1,13 @@
+Flask
+flask_sqlalchemy
+instaloader
+pymysql
+suds
+
+
+نکته:یوزر و پسورد برای لاگین شدن به اینستاگرام باید در فایل کانفیگ ست شود.
+
+database name:lottery
+ 
+
+ 

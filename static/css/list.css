@@ -1,0 +1,91 @@
+table {
+    
+    font-family: verdana,arial,sans-serif;
+    font-size:15px;
+    color:#333333;
+    border-width: 1px;
+    border-color: #999999;
+    border-collapse: collapse;
+    
+   
+    
+}
+th {
+    background:#b5cfd2;
+    border-width: 1px;
+    padding: 12px;
+    border-style: solid;
+    border-color: #999999;
+}
+td {
+    
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #999999;
+}
+tr {
+    background-color: #cec7e0;
+
+}
+tr:hover {
+    background-color: #9885b8;
+}
+.btn
+{
+    background-color: #0534699a; 
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin-top: 20px;
+
+    margin-left: 340px;
+    border-radius: 8px;
+
+}
+.btn:hover
+{
+    background-color: #4442b6cc;
+    color: white;
+}
+.btnedit
+{
+    background-color: #b8f021; 
+    border: none;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 3px;
+    font-size: 15px;
+    padding: 5px 10px;
+}
+.btnedit:hover
+{
+    background-color: rgb(145, 155, 6);
+    color: black;
+}
+.btndel
+{
+    background-color: #ec3030; 
+    border: 2px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 3px;
+    font-size: 15px;
+    padding: 5px 10px;
+}
+.btndel:hover
+{
+    background-color: #8f3838;
+    color: black;
+}
+
+
+  

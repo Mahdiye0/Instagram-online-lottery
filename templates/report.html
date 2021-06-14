@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	
+<div class="form-group" style= "margin-left: 200px; ">
+	<label> {{session['user']}}</label>
+	<a href="{{url_for('logout')}}" class="btn btn-primary">Logout</a>
+	<br>
+  </div>
+  <br>
+<div style= "margin-left: 200px; width: 600px;border: 1px solid;">
+	<div class="input-group mb-3">
+		<label style="margin-left:5px; margin-top: 5px;" for="addresspost">Link:  </label>
+		<input class="form-control" style="margin-left:20px; margin-top: 5px;" type="text"  value="{{session['link']}}" readonly  name="addresspost" >
+	</div>
+	<div class="input-group mb-3">
+		<label style="margin-left:5px; margin-top: 5px;" for="count">Count:  </label>
+		<input class="form-control" style="margin-left:5px; margin-top: 5px;" type="text" readonly  name="count" value="{{session['count']}}" >
+	</div>
+	<div class="input-group mb-3">
+		<label style="margin-left:5px; margin-top: 5px;" for="type">Type:  </label>
+		<input class="form-control" style="margin-left:16px; margin-top: 5px;" type="text" readonly  name="type" value="{{session['c']+'  '+session['l']+'  '+session['f']+'  '+session['m']}}" >
+	</div>
+	<div class="input-group mb-3">
+		
+
+		<button id="myd" style="margin-left:10px;" onclick="download();" class="btn btn-success">Download</button>
+		<button id="mybutton" style="margin-left:10px;" onclick="lottery();" class="btn btn-success">Lottery</button>
+		
+	</div>
+	{% if flag %}
+		<div >
+			<h5  style="margin-left:10px;">Winer is:</h5>
+			<h4 style="color: gold; margin-left: 140px;" > {{winer}}</h4>
+		</div>
+	{% endif %}
+</div>
+<br>
+<div id="prompt"  style="display:none;margin-left:400px; width: 200px;">
+	<img src="{{ url_for('static', filename='img/ajax-loader.gif') }}"></img>
+</div>
+<script>
+	function lottery(){
+		document.getElementById('mybutton').disabled="true";
+        document.getElementById('prompt').style.display="block";
+		document.location.href = '/Lotterry',true;
+	}
+	function download(){
+		document.getElementById('myd').disabled="true";
+        document.getElementById('prompt').style.display="block";
+		document.location.href = '/download',true;
+	}
+</script>
+
+	
+	
+
+	 
+	  
+	
+{% endblock %}
+

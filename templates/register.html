@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if request.method == 'GET' and request.args.get('message')=="2"  %}  
+        
+        <div style= "margin-left: 350px; width: 400px;"><span>نام کاربری تکراری است</span></div>
+    {% endif %}
+    
+	<form action="/process" method="post">
+		<div style= "margin-left: 350px; width: 400px;">
+		<div class="form-group">
+			<label for="user" class="form-label">User Name:</label>
+			<input type="text" class="form-control"  name="user" required>
+		</div>
+		<div class="form-group">
+			<label for="password" class="form-label">Password:</label>
+			<input type="password" class="form-control" name="password" required >
+		</div>
+		
+		<div class="form-group">
+			<label for="email" class="form-label">Email:</label>
+			<input type="text" class="form-control"  name="email" required>
+		</div>
+		<input type="hidden" name="id"  />
+		
+		<div class="form-group mt-3">
+			<button type="submit" class="btn btn-success">Submit</button>
+			<a href="/" class="btn btn-primary">Back</a>
+		</div>
+		</div>
+    </form>
+   
+    
+{% endblock %}
+

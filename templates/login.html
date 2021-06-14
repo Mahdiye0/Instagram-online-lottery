@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="form-group" style= "margin-left: 200px; ">
+      <label> {{session['user']}}</label>
+      <a href="{{url_for('logout')}}" class="btn btn-primary">Logout</a>
+
+      <br>
+    </div>
+    <br>
+   
+    <div class="panel panel-primary"  style= "margin-left: 200px; width: 600px;border: 1px solid;">
+        <div class="panel-heading">Select Output:</div>
+        <div class="panel-body">
+            <form name="form1"  id="form1" onsubmit="onSubmit();" action="/Outputprocss" method="post">
+               
+                <input type="checkbox" style="margin-left:5px;" {% if list[0] %}  checked  {% endif %}  id="comment" name="comment" value="comment">
+                <label for="comment"> Comment</label><br>
+                <input type="checkbox" style="margin-left:5px;" id="like" {% if list[1] %}  checked  {% endif %} name="like" value="like">
+                <label for="like"> Like</label><br>
+                <input type="checkbox" style="margin-left:5px;" id="followers" {% if list[2] %}  checked  {% endif %} name="followers" value="followers">
+                <label for="followers"> Followers</label><br>
+                <input type="checkbox" style="margin-left:5px;" id="mention" {% if list[3] %}  checked  {% endif %} name="mention" value="mention">
+                <label for="mention"> Mention</label><br><br>
+                <label style="margin-left:5px;">Link:</label>
+                <div class="input-group mb-3" id="mylink">
+                    <input type="text"  style="margin-left:5px;"  value="{{post}}" required name="addresspost" class="form-control">
+                    <div class="input-group-append">
+                      <button id="search" class="btn btn-outline-secondary"  type="submit">Search</button>
+                    </div>
+                   
+                   
+                  
+                </div>
+                <div class="input-group mb-3" >
+                  
+                </div>
+                <div class="input-group-append">
+                  <span style="margin-left:5px;color: darkorange;"> {{ text }}</span></br>
+                  {% if  flagc %}
+                    <span style="margin-left:5px;color: maroon;">Count Comments: {{ countc }}</span><br>
+                  {% endif %}
+                  {% if flagl %}
+                    <span style="margin-left:5px;color: maroon;">Count Likes: {{ countl }}</span><br>
+                  {% endif %}
+                  {% if flagm %}
+                    <span style="margin-left:5px;color: maroon;">Count Mention: {{ countm }}</span><br>
+                  {% endif %}
+                  {% if flagf %}
+                    <span style="margin-left:5px;color: maroon;">Count Flowers: {{ countf }}</span><br>
+                  {% endif %}
+                </div>
+                
+                  
+                <div class="input-group-append">
+
+                  {% if flag %} 
+                    <label style="margin-left:5px;">Price:</label>
+                    <input style="margin-left:5px;" type="text" name="price" value="1000" class="form-control">
+                    <a href="/request/" class="btn btn-success">Pay</a>
+
+                  {% elif flag1 %}
+                    <a style="margin-left:5px;" href="/report" class="btn btn-success">submit</a>
+                    
+                  {% elif flag2 %}
+                    <label style="margin-left:5px;" > به دلیل صفر بودن تعداد،قرعه کشی انجام نمیشود </label><br>
+                  {% endif %} 
+
+                </div>
+                  
+            </form>
+            
+        </div>
+      </div>
+      <div id="prompt"  style="display:none;margin-left:400px; width: 200px;">
+        <img src="{{ url_for('static', filename='img/ajax-loader.gif') }}"></img>
+      </div>
+   <script>
+     function onSubmit(){
+        
+        document.getElementById('search').disabled="true";
+        document.getElementById('prompt').style.display="block";
+        document.getElementById('form1').submit();
+     }
+   </script>
+    
+   
+      
+    
+    
+  
+{% endblock %}
